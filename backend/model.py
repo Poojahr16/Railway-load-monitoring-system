@@ -1,4 +1,5 @@
-import numpy as np
+def predict(data):
+    return {"prediction": "success"}  # dummy response
 
 # load trained model
 model = tf.keras.models.load_model("../ml_model/model.h5", compile=False)
