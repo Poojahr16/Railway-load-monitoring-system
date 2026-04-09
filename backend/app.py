@@ -11,16 +11,16 @@ def home():
 
 @app.route("/predict", methods=["POST"])
 def get_prediction():
+    try:
+        data = request.json
 
-    data = request.json
+        load = data.get("load")
+        vibration = data.get("vibration")
+        temperature = data.get("temperature")
 
-    load = data["load"]
-    vibration = data["vibration"]
-    temperature = data["temperature"]
+        result = predict(load, vibration, temperature)
 
-    result = predict(load, vibration, temperature)
+        return jsonify({"prediction": result})
 
-    return jsonify({"prediction": result})
-
-if __name__ == "__main__":
-    app.run(debug=True)
+    except Exception as e:
+        return jsonify({"error": str(e)})
