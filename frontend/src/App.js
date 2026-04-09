@@ -10,7 +10,7 @@ function App() {
 
   const predict = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/predict", {
+      const response = await axios.post("https://railway-load-monitoring-system-9.onrender.com/", {
         load: parseFloat(load),
         temperature: parseFloat(temperature),
         vibration: parseFloat(vibration),
