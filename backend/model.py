@@ -1,2 +1,2 @@
-def predict(data):
-    return {"prediction": "success"}  # dummy response
+def predict(load, vibration, temperature):
+    return "working"
